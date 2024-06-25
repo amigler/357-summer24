@@ -173,13 +173,23 @@ elif [ "$1" = "uniq" ]; then
 
 elif [ "$1" = "style" ]; then
 
-  echo "(review to be performed manually)"
-  exit 1
+    wget -q https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/plain/scripts/checkpatch.pl
+    #perl checkpatch.pl --no-signoff --types BRACKET_SPACE,ASSIGN_IN_IF,DEEP_INDENTATION,TRAILING_STATEMENTS -f --no-tree *.c
+    
+    perl checkpatch.pl --terse --ignore STRCPY,CODE_INDENT,LEADING_SPACE,TRAILING_WHITESPACE,OPEN_BRACE,BRACES,SPDX_LICENSE_TAG -f --no-tree *.c
+
+    if [ $? -ne 0 ]; then
+	echo "ERROR: style check"
+	((red++));
+    else
+	echo "SUCCESS: style check"
+	((green++));
+    fi
     
 else
 
-  echo "No test specified"
-  exit 1
+    echo "No test specified"
+    exit 1
 
 fi
 
