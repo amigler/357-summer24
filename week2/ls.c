@@ -7,7 +7,7 @@
 
 int main(int argc, char *argv[]) {
     
-    DIR *dp = opendir("/usr/include");
+    DIR *dp = opendir(".");
     struct dirent *de = NULL;
     struct stat fstat;
 
