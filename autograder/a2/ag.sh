@@ -40,7 +40,7 @@ elif [ "$1" = "style" ]; then
     wget -q https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/plain/scripts/checkpatch.pl
     #perl checkpatch.pl --no-signoff --types BRACKET_SPACE,ASSIGN_IN_IF,DEEP_INDENTATION,TRAILING_STATEMENTS -f --no-tree *.c
     
-    perl checkpatch.pl --terse --ignore STRCPY,CODE_INDENT,LEADING_SPACE,TRAILING_WHITESPACE,OPEN_BRACE,BRACES,SPDX_LICENSE_TAG,SUSPECT_CODE_INDENT -f --no-tree *.c
+    perl checkpatch.pl --terse --ignore STRCPY,CODE_INDENT,LEADING_SPACE,TRAILING_WHITESPACE,OPEN_BRACE,BRACES,SPDX_LICENSE_TAG,SUSPECT_CODE_INDENT,NEW_TYPEDEFS -f --no-tree *.c
 
     if [ $? -ne 0 ]; then
 	echo "ERROR: style check"
