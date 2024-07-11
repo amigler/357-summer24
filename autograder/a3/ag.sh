@@ -92,6 +92,7 @@ elif [ "$1" = "arg_s" ]; then
 
 elif [ "$1" = "style" ]; then
 
+    ((total++))
     wget -q https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/plain/scripts/checkpatch.pl
     #perl checkpatch.pl --no-signoff --types BRACKET_SPACE,ASSIGN_IN_IF,DEEP_INDENTATION,TRAILING_STATEMENTS -f --no-tree *.c
     
