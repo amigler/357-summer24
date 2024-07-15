@@ -27,7 +27,7 @@ void sig_handler(int signo) {
 
     // strsignal() returns a string description of a signal
     printf("received signal %d (%s)\n", signo, strsignal(signo));
-    
+
     if (signo == SIGTSTP) {
         printf("received SIGTSTP (%d)\n", signo);
         signal(SIGTSTP, SIG_DFL);  // switch to default signal handler

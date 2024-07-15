@@ -22,7 +22,7 @@ void charatatime(char* str)
 {
     char* ptr;
     
-    //setbuf(stdout, NULL);  /* set stdout to be unbuffered */
+    setbuf(stdout, NULL);  /* set stdout to be unbuffered */
     for (ptr = str; *ptr != 0; ++ptr) {
         putc(*ptr, stdout);
         sleep((rand() % 100) * .001);

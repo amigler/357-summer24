@@ -13,7 +13,7 @@ int main(void) {
         printf("fork error");
     } else if (pid == 0) {
         /* specify pathname, specify environment */
-        if (execle("/home/ubuntu/357-s24/week7/echoall",
+        if (execle("/home/ubuntu/357/week4/echoall",
                    "echoall", "arg1", "MY ARG2", (char *)0,  // becomes argv[]
                    env_init) < 0) {
             printf("execle error");
