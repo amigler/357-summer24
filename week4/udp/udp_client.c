@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
     slen = sizeof(sa);
     
     len = recvfrom(sock_fd, buff, sizeof(buff), 0, (struct sockaddr *) &sa, &slen);
+    printf("Received %d bytes (from port %d): \n", len, ntohs(sa.sin_port)); 
     write(STDOUT_FILENO, buff, len);
     
     shutdown(sock_fd, SHUT_RDWR);

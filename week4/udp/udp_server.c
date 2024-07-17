@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
     printf("Received %d bytes from <%s:%d>: ", n, localaddr, ntohs(sa.sin_port));
     fflush(stdout);
     
-    write(STDOUT_FILENO, buff, strlen(MESG));
+    write(STDOUT_FILENO, buff, n);
     sendto(sock_fd, MESG, strlen(MESG), 0, (struct sockaddr *) &sa, sizeof(sa));
     
     shutdown(sock_fd, SHUT_RDWR);
