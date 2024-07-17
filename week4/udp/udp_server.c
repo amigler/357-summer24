@@ -13,7 +13,6 @@
 int main(int argc, char *argv[]) {
     int sock_fd;
     struct sockaddr_in sa;
-    socklen_t len;
     
     char localaddr[INET_ADDRSTRLEN];
     char buff[MAXLEN+1];
@@ -34,11 +33,11 @@ int main(int argc, char *argv[]) {
 
     inet_ntop(AF_INET, &sa.sin_addr.s_addr, localaddr, sizeof(localaddr));
     
-    printf("Message from <%s:%d>: ", localaddr, ntohs(sa.sin_port));
+    printf("Received %d bytes from <%s:%d>: ", n, localaddr, ntohs(sa.sin_port));
     fflush(stdout);
     
     write(STDOUT_FILENO, buff, strlen(MESG));
-    len = sendto(sock_fd, MESG, strlen(MESG), 0, (struct sockaddr *) &sa, sizeof(sa));
+    sendto(sock_fd, MESG, strlen(MESG), 0, (struct sockaddr *) &sa, sizeof(sa));
     
     shutdown(sock_fd, SHUT_RDWR);
     
