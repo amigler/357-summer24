@@ -31,7 +31,7 @@ if [ "$1" = "valgrind" ]; then
   diff -a -y out_actual <(tree -n -a -s --charset=ascii ag_tree1)
   if [ $? -ne 0 ]; then
 
-    diff -a -y out_actual <(tree -n -a -s --charset=ascii ag_tree1) | cat -t
+    #diff -a -y out_actual <(tree -n -a -s --charset=ascii ag_tree1) | cat -t
       
     echo "Tree functionality incomplete, valgrind check skipped"
     exit 1
