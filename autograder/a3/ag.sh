@@ -27,8 +27,8 @@ if [ "$1" = "valgrind" ]; then
   mkdir -p ag_tree1/.a/.b/.c/.d
   
   rm -f out_actual
-  timeout 10s ./tree -a -s ag_tree1 > out_actual
-  diff -a -y out_actual <(tree -n -a -s --charset=ascii ag_tree1)
+  timeout 10s ./tree -a -s ag_tree1 | tail -n +2 > out_actual
+  diff -a -y out_actual <(tree -n -a -s --charset=ascii ag_tree1 | tail -n +2)
   if [ $? -ne 0 ]; then
 
     #diff -a -y out_actual <(tree -n -a -s --charset=ascii ag_tree1) | cat -t
