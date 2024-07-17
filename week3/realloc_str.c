@@ -35,7 +35,7 @@ int main() {
         } else {
             // realloc returned different block of memory, need to update strings pointer
             strings = tmp;
-            strings[count++] = strdup(buf);
+            strings[count++] = buf;
             
             // malloc (strlen(buf) + 1)
             // strcpy(...)
@@ -50,7 +50,7 @@ int main() {
     
     for (int i = 0; i < count; i++) {
         printf("%s", strings[i]);
-        free( strings[i]);  // malloc implicitly done by strdup()
+        //free( strings[i]);  // malloc implicitly done by strdup()
     }
     
     free(strings);  // free the heap-allocated array of strings
