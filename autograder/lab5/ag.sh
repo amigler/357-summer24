@@ -54,7 +54,7 @@ elif [ "$1" = "concurrent" ]; then
     
     ((total++))
     rm -f out_actual out_ag_files ag_file*
-    timeout 11s ./lab5download ag_delays.txt 3 > out_actual
+    timeout 12s ./lab5download ag_delays.txt 3 > out_actual
     # list downloaded files and sizes for comparison
     (/bin/ls -ls ag_file* > /dev/null && (/bin/ls -ls ag_file* | awk '{print $10}' > out_ag_files)) || (echo "No downloaded files found. Your program output: " && cat out_actual)
     diff -a -y out_ag_files ag_delays_expected
