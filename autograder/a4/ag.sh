@@ -213,7 +213,7 @@ elif [ "$1" = "cgi" ]; then
 
     timeout 2 curl -sG "http://localhost:9009/cgi-bin/wc?autograder%20word%20count%0Atest%0A" 2>&1 > ag_CGI_out
     
-    diff -a -yw ag_CGI_out <(echo "autograder word count\ntest" | wc)
+    diff -a -yw ag_CGI_out <(printf "autograder word count\ntest\n" | wc)
     if [ $? -ne 0 ]; then
 	((red++));
 	echo "ERROR: cgi-bin request for wc"
