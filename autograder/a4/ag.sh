@@ -207,7 +207,7 @@ elif [ "$1" = "cgi" ]; then
 
     ((total++))
     echo ""
-    echo "Test Case #$total: GET /cgi-bin/usr/bin/wc?autograder%20word%20count%0Atest HTTP/1.1"
+    echo "Test Case #$total: GET /cgi-bin/usr/bin/wc?autograder%20word%20count%0Atest%0A HTTP/1.1"
     #timeout 2 curl -sG http://localhost:9009/cgi-bin/wc --data-urlencode "autograder word count
     #test" 2>&1 > ag_CGI_out
 
